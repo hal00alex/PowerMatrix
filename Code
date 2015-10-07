@@ -1,0 +1,65 @@
+import cmath
+
+#get user to input matrix desired and solve based on that
+#change a bus to see what happens
+#j varies so, list to float function needs to change 
+
+
+
+#make sure inputs are numbers 
+def int_list (x):
+    new_list = []
+    for i in range (0, len(x)):
+        item = float(x[i])
+        new_list.append(item)
+    x = new_list
+    return x 
+
+
+def main ():
+    #get user to input the nodal matrix
+    y = [] 
+    row_1 = list(input("Please enter the first row of your matrix: "))
+    x = row_1
+    row_1 = int_list(x) 
+    y.append(row_1) 
+    row_2 = list (input("Please enter the second row of your matrix: "))
+    x = row_2
+    row_2 = int_list(x) 
+    y.append(row_2) 
+    row_3 = list (input("Please enter the third row of your matrix: "))
+    x = row_3
+    row_3 = int_list(x) 
+    y.append(row_3) 
+    print (y) 
+   
+
+    #get user to input voltage matrix
+    v = [] 
+    row_1_1 = list (input("Please enter the first voltage: "))
+    x = row_1_1
+    row_1_1 = int_list(x) 
+    v.append(row_1_1) 
+    row_2_1 = list (input("Please enter the second voltage: "))
+    x = row_2_1
+    row_2_1 = int_list(x) 
+    v.append(row_2_1) 
+    row_3_1 = list (input("Please enter the third voltage: "))
+    x = row_3_1
+    row_3_1 = int_list(x) 
+    v.append(row_3_1)
+    print (v) 
+
+    result = [[0],[0],[0]]
+    for i in range (len(y)):
+        for j in range(len(v[0])):
+            for k in range(len(v)):
+                result[i][j] += y[i][k] * v[k][j]
+
+    #r is equal to current 
+    for r in result:
+        print (r)
+    
+    
+
+main ()
